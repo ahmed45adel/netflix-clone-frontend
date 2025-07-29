@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import { Search } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { API_BASE_URL } from "../utils/constants";
 import { ORIGINAL_IMG_BASE_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 
@@ -23,7 +24,7 @@ const SearchPage = () => {
 	const handleSearch = async (e) => {
 		e.preventDefault();
 		try {
-			const res = await axios.get(`/api/v1/search/${activeTab}/${searchTerm}`);
+			const res = await axios.get(`${API_BASE_URL}/api/v1/search/${activeTab}/${searchTerm}`);
 			setResults(res.data.content);
 		} catch (error) {
 			if (error.response.status === 404) {
