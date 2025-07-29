@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { LogOut, Menu, Search } from "lucide-react";
 import { useAuthStore } from "../store/authUser";
 import { useContentStore } from "../store/content";
+import avatar from '../assets/avatar'
 
 const Navbar = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -36,7 +37,7 @@ const Navbar = () => {
 				<Link to={"/search"}>
 					<Search className='size-6 cursor-pointer' />
 				</Link>
-				<img src={'../../public/avatar.png'} alt='Avatar' className='h-8 rounded cursor-pointer' />
+				<img src={avatar} alt='Avatar' className='h-8 rounded cursor-pointer' />
 				<LogOut className='size-6 cursor-pointer' onClick={logout} />
 				<div className='sm:hidden'>
 					<Menu className='size-6 cursor-pointer' onClick={toggleMobileMenu} />
